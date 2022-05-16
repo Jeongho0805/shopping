@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <body>
     <!--네비게이션 바 구현-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="menu">
@@ -18,9 +18,12 @@
                         <a class="nav-link" href="/board/list">list</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <a class="btn btn-outline-success mx-2" th:href="@{/account/login}" sec:authorize="!isAuthenticated()">Login</a>
+                <a class="btn btn-outline-success" th:href="@{/account/register}" sec:authorize="!isAuthenticated()">sign up</a>
+                <form class="d-flex" th:action="@{/logout}" method="POST" sec:authorize="isAuthenticated()">
+                    <span class="text-green" sec:authentication="name">사용자</span>
+                    <span class="text-green mx-2" sec:authentication="principal.authorities">권한</span>
+                    <button class="btn btn-outline-success" type="submit">Logout</button>
                 </form>
             </div>
         </div>
