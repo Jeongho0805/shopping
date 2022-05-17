@@ -35,7 +35,7 @@ public class BoardService {
 
 
     // 특정 게시글 불러오기
-    public Board boardView(Integer id) {
+    public Board boardView(Long id) {
 
         return boardRepository.findById(id).get();
 
@@ -43,7 +43,7 @@ public class BoardService {
 
     // 특정 게시글 삭제
     
-    public void boardDelete(Integer id) {
+    public void boardDelete(Long id) {
 
         boardRepository.deleteById(id);
 

@@ -26,7 +26,7 @@ public class BoardController {
     }
 
     @GetMapping("/board/write")
-    public String boardWriteForm(Model model, @RequestParam(required = false) Integer id) {
+    public String boardWriteForm(Model model, @RequestParam(required = false) Long id) {
         if(id == null) {
             model.addAttribute("board", new Board());
         } else{
@@ -54,6 +54,14 @@ public class BoardController {
         model.addAttribute("list", list);
 
         return "boardlist";
+    }
+
+    @GetMapping("/board/delete")
+    public String boardDelete(Long id ) {
+
+        boardService.boardDelete(id);
+
+        return "redirect:/board/list";
     }
 
 
