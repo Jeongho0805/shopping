@@ -16,9 +16,11 @@ public class Board {
 
     private String content;
 
-    private String name;
+    //  @JoinColumn(name = "user_id", referencedColumnName = "id") 로 작성해야 하지만, id값이 pk이기 때문에 생략 가능
 
-    private String views;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
 }

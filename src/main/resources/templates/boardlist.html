@@ -60,24 +60,21 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">작성자</th>
                     <th scope="col">제목</th>
+                    <th scope="col">작성자</th>
                     <th scope="col">view</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="board : ${list}">
-                    <td th:text="${board.id}">1</td>
-                    <td>
-                        <a th:text="${board.name}"></a>
-                    </td>
-                    <td >
-                        <a th:text="${board.title}" th:href="@{/board/write(id=${board.id})}"></a>
-                    </td>
-                    <td >
-                        <a th:text="${board.views}"></a>
-                    </td>
-                </tr>
+                    <tr th:each="board : ${list}">
+                        <td th:text="${board.id}">1</td>
+                        <td >
+                            <a th:text="${board.title}" th:href="@{/board/write(id=${board.id})}"></a>
+                        </td>
+                        <!-- 해당 부분에서 오류 발생 -->
+                        <td th:text="${board.user.username}">작성자</td>
+                        <td>1</td>
+                    </tr>
                 </tbody>
             </table>
             <!-- 버튼처리 -->
