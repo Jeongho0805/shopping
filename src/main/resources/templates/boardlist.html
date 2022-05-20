@@ -72,6 +72,7 @@
                             <a th:text="${board.title}" th:href="@{/board/write(id=${board.id})}"></a>
                         </td>
                         <!-- 해당 부분에서 오류 발생 -->
+
                         <td th:text="${board.user.username}">작성자</td>
                         <td>1</td>
                     </tr>
