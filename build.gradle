@@ -32,6 +32,7 @@ dependencies {
 
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 
+	implementation 'com.google.code.gson:gson:2.9.0'
 }
 
 tasks.named('test') {
