@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,9 +39,10 @@ public class BoardController {
     }
 
     @PostMapping("/board/write")
-    public String greetingSubmit(@ModelAttribute Board board){
+    public String greetingSubmit(@ModelAttribute Board board, Authentication authentication) {
 
-        boardService.write(board);
+        String username = authentication.getName();
+        boardService.write(username, board);
 
         return "redirect:/board/list";
     }
@@ -63,6 +65,20 @@ public class BoardController {
 
         return "redirect:/board/list";
     }
+
+
+    // 특정 사용자가 쓴 글 전체 표시 기능
+    @GetMapping("/board/user")
+    public String boardUserWriteList(Model model, @RequestParam String name){
+
+        List<Board> list =  boardService.boardUserWrite(name);
+
+        model.addAttribute("list", list);
+
+        return "boardlist";
+
+    }
+
 
 
 

@@ -20,6 +20,9 @@ public class User {
 
     private Boolean enabled;
 
+    @OneToMany(mappedBy = "user")
+    private List<Board> boards = new ArrayList<>();
+
 
     @ManyToMany
     @JoinTable(

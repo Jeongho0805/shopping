@@ -1,7 +1,9 @@
 package com.jeongho.shopping.service;
 
 import com.jeongho.shopping.entity.Board;
+import com.jeongho.shopping.entity.User;
 import com.jeongho.shopping.repository.BoardRepository;
+import com.jeongho.shopping.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,10 +20,15 @@ public class BoardService {
     @Autowired
     private BoardRepository boardRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
 
     // 글 작성
-    public void write(Board board)  {
+    public void write(String username, Board board)  {
 
+        User user = userRepository.findByUsername(username);
+        board.setUser(user);
         boardRepository.save(board);
 
     }
@@ -46,6 +53,16 @@ public class BoardService {
     public void boardDelete(Long id) {
 
         boardRepository.deleteById(id);
+
+    }
+
+    // 특정 사용자로 전체 글 조회
+
+    public List<Board> boardUserWrite(String username){
+
+        User user = userRepository.findByUsername(username);
+
+        return boardRepository.findAllByUser(user);
 
     }
 }

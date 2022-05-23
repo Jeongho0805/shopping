@@ -73,7 +73,9 @@
                         </td>
                         <!-- 해당 부분에서 오류 발생 -->
 
-                        <td th:text="${board.user.username}">작성자</td>
+                        <td>
+                            <a th:text="${board.user.username}" th:href="@{/board/user(name=${board.user.username})}"></a>
+                        </td>
                         <td>1</td>
                     </tr>
                 </tbody>
