@@ -1,32 +1,35 @@
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        
+    </head>
 <body>
     <!--네비게이션 바 구현-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="menu">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Jeongho</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/board/list">list</a>
-                    </li>
-                </ul>
-                <a class="btn btn-outline-success mx-2" th:href="@{/account/login}" sec:authorize="!isAuthenticated()">Login</a>
-                <a class="btn btn-outline-success" th:href="@{/account/register}" sec:authorize="!isAuthenticated()">sign up</a>
-                <form class="d-flex" th:action="@{/logout}" method="POST" sec:authorize="isAuthenticated()">
-                    <span class="text-green" sec:authentication="name">사용자</span>
-                    <span class="text-green mx-2" sec:authentication="principal.authorities">권한</span>
-                    <button class="btn btn-outline-success" type="submit">Logout</button>
-                </form>
+    <nav class="navTop" th:fragment="menu">
+        <div>
+
+        </div>
+        <div class="topNav">
+            <div class="flex alignCenter">
+                <div class="flexCenter navItem">
+                    <a aria-current="page" href="/">Home</a>
+                </div>
+                <div class="flexCenter navItem">
+                    <a href="/board/list">List</a>
+                </div>
+            </div>
+            
+            <div class="flex alignCenter">
+                <div class="navItem sign" id="SIGN_IN">
+                    SIGN IN
+                </div>
+                <div class="navItem sign" id="SIGN_UP">
+                    SIGN UP
+                </div>
             </div>
         </div>
+        <script src="../js/nav.js"></script>
     </nav>
 </body>
 </html>

@@ -1,0 +1,38 @@
+* {
+    position: relaive;
+    box-sizing: border-box;
+}
+body{
+    margin: 0px;
+}
+
+a, a:visited, a:link, a:hover, a:active {
+    text-decoration: none;
+}
+
+.flex{
+    display: flex;
+}
+.flex-col{
+    display: flex;
+    flex-direction: column;
+}
+
+.flexCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flexColCenter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.alignCenter{
+    align-items: center;
+}
+.between{
+    justify-content: space-between;
+}

@@ -1,0 +1,84 @@
+:root{
+    --primaryColor: rgb(255, 128, 0);
+    --secondaryColor: rgb(255, 178, 102);
+    --thirdColor: rgb(255, 128, 102);
+
+    --blackPrimaryColor: black;
+    --blackSecondaryColor: rgb(100, 100, 100);
+
+    --whitePrimaryColor: white;
+    --whiteSecondaryColor: rgb(100, 100, 100);
+}
+
+* {
+    position: relaive;
+    box-sizing: border-box;
+}
+
+.navTop{
+    padding: 10px;
+    border-top: 1px solid #e4e8eb;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 12%);
+}
+.topNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.navItem{
+    cursor: pointer;
+
+    color: var(--blackSecondaryColor);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 14px;
+    vertical-align: middle;
+    text-align: center;
+
+    width: 100px;
+    height: 30px;
+    padding: 8px 0;
+}
+.navItem a:visited{
+    color: rgb(73, 73, 73);
+}
+.navItem.selected{
+    color: var(--blackPrimaryColor);
+    font-weight: bold;
+
+    background-color: var(--primaryColor)
+}
+.navItem.selected a:visited{
+    color: var(--blackPrimaryColor);
+}
+.navItem a{
+    width: 100%;
+    height: 100%;
+}
+.navItem:first-child{
+    border-radius: 12px 0px 0px 12px;
+}
+.navItem:last-child{
+    border-right: none;
+    border-radius: 0px 12px 12px 0px;
+}
+
+.navItem.sign{
+    font-size: 16px;
+    line-height: 16px;
+    padding: 6px 0px;
+    font-weight: bold;
+    
+    border: 1px solid var(--primaryColor);
+    border-right: 0px;
+    background-color: var(--secondaryColor);
+}
+.navItem.sign:last-child{
+    border-right: 1px solid var(--primaryColor);
+}
+
+.navItem:hover{
+    background-color: var(--thirdColor);
+}
