@@ -14,7 +14,19 @@ function onInit(){
 //JSON.stringify(data)
 function btnClick(){
     debugger;
-    let data = {data: g_input.value};
+    let data = {
+        data: {
+            input: g_input.value,
+            innerData: 'some Data',
+            innerData2: {
+                strData: 'some Data',
+                numData: 123,
+                boolData: true,
+                nullData: null,
+                arrData: [1,2,3],
+            }
+        }
+    };
     let url = '/test/btn2';
     commRequest(url, "post", data, function(outRec, status){
         debugger
