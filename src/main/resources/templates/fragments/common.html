@@ -22,7 +22,7 @@
             
             <div id="login_state" class="flex alignCenter" sec:authorize="isAuthenticated()">
                 <div id="userInfo" style="margin-right: 12px; font-size: 12px;">
-
+                    <span style="font-size: 16px; font-weight: bold;" sec:authentication="name"></span>님 안녕하세요
                 </div>
                 <form th:action="@{/logout}" method="POST">
                     <button id="LOGOUT_BTN" style="display: none;" type="submit"></button>
