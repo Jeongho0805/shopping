@@ -82,3 +82,75 @@
 .navItem:hover{
     background-color: var(--thirdColor);
 }
+
+
+
+/* 로그인 정보 입력 */
+.loginInfo{
+    width: 300px;
+    box-sizing: content-box;
+    position: relative;
+    color: var(--blackPrimaryColor);
+    border: 1px solid var(--blackSecondaryColor);
+    border-radius: 6px;
+}
+.loginInfo input{
+    width: 100%;
+    padding: 16px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none !important;
+    border-radius: 6px;
+}
+.loginInfo label{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 16px 12px;
+    pointer-events: none;
+    border: none !important;
+    border-radius: 6px;
+    transition-duration: 250ms;
+}
+.loginInfo.Selected{
+    border: 1px solid #0d6efd;
+    box-shadow: 0 5px 5px 0 rgba(100, 100, 100, 0.12);
+}
+.loginInfo.Selected input, .loginInfo.inserted input{
+    padding: 20px 12px 12px 12px;
+}
+.loginInfo.Selected label, .loginInfo.inserted label{
+    font-size: 8px;
+    height: 50%;
+    color: var(--blackSecondaryColor);
+    padding-top: 8px;
+}
+
+.loginBtn{
+    background-color: #0d6efd;
+    width: 300px;
+    height: 48px;
+    border: none;
+    border-radius: 6px;
+    color: var(--whitePrimaryColor);
+    font-size: 18px;
+}
+
+.invalid_alert{
+    width: 100%;
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+}
+.positive_alert{
+    width: 100%;
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+}

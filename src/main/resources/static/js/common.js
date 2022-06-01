@@ -1,5 +1,5 @@
+// var sessionStorage = window.sessionStorage;
 
-let state;
 
 function commRequest(url, type, data, callback) {
     $.ajax({
@@ -20,3 +20,15 @@ function commRequest(url, type, data, callback) {
         }
     });
 }
+
+// function getLoginInfo(sId){
+//     let url = '/account/loginInfo';
+//     commRequest(url, "post", null, function(outRec, status){
+//         debugger
+//         if(status == "success"){
+//             if(outRec != "fail"){
+//                 sessionStorage.setItem("loginInfo", outRec);
+//             }
+//         }
+//     });
+// }

@@ -20,7 +20,19 @@
                 </div>
             </div>
             
-            <div class="flex alignCenter">
+            <div id="login_state" class="flex alignCenter" sec:authorize="isAuthenticated()">
+                <div id="userInfo" style="margin-right: 12px; font-size: 12px;">
+
+                </div>
+                <form th:action="@{/logout}" method="POST">
+                    <button id="LOGOUT_BTN" style="display: none;" type="submit"></button>
+                    <div class="navItem sign" id="LOGOUT">
+                        LOGOUT
+                    </div>
+                </form>
+                
+            </div>
+            <div id="logout_state" class="flex alignCenter" sec:authorize="!isAuthenticated()">
                 <div class="navItem sign" id="SIGN_IN">
                     SIGN IN
                 </div>
